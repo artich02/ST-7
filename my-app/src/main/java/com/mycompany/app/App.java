@@ -6,15 +6,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class App {
     public static void main(String[] args) {
-        // Вариант 1: Используйте двойные обратные слеши
         String driverPath = "D:\\WORK ARTEM\\QA_UNN\\chromedriver-win64\\chromedriver.exe";
-        
-        // ИЛИ Вариант 2: Используйте обычные слеши (работает в Java на всех ОС)
-        // String driverPath = "D:/WORK ARTEM/QA_UNN/chromedriver-win64/chromedriver.exe";
         
         System.setProperty("webdriver.chrome.driver", driverPath);
         
-        // Проверка существования файла
         if (!new java.io.File(driverPath).exists()) {
             System.err.println("Ошибка: ChromeDriver не найден по пути: " + driverPath);
             return;
@@ -32,7 +27,7 @@ public class App {
 
     public static void testSelenium() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*"); // Важно для Selenium 4+
+        options.addArguments("--remote-allow-origins=*");
         
         WebDriver driver = new ChromeDriver(options);
         try {
