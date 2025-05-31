@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class WeatherForecastFetcher {
+public class Task3 {
     
     private static final String WEATHER_API_URL = 
         "https://api.open-meteo.com/v1/forecast?latitude=56&longitude=44" +
