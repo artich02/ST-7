@@ -6,13 +6,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Task2 {
     public static void getIPAddress() {
-        WebDriver webDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        options.setHeadless(true); // Работает в фоновом режиме
+        
+        WebDriver driver = new ChromeDriver(options);
         try {
-            webDriver.get("https://api.ipify.org/?format=json");
-            WebElement element = webDriver.findElement(By.tagName("pre"));
+            driver.get("https://api.ipify.org/?format=json");
+            WebElement element = driver.findElement(By.tagName("pre"));
 
             String jsonStr = element.getText();
             JSONParser parser = new JSONParser();
@@ -21,12 +26,12 @@ public class Task2 {
             String ipAddress = (String) obj.get("ip");
             System.out.println("Ваш IP-адрес: " + ipAddress);
 
-            Thread.sleep(2000); // Пауза для возможности увидеть результат
+            Thread.sleep(2000);
         } catch (Exception e) {
-            System.out.println("Ошибка при получении IP-адреса:");
-            System.out.println(e.toString());
+            System.err.println("Ошибка при получении IP-адреса:");
+            e.printStackTrace();
         } finally {
-            webDriver.quit();
+            driver.quit();
         }
     }
 }

@@ -21,7 +21,7 @@ public class Task3 {
     
     private static final String OUTPUT_FILE = "result/forecast.txt";
     
-    public static void fetchWeatherData() {
+    public static void fetchWeatherForecast() {
         WebDriver driver = initializeDriver();
         try {
             processWeatherData(driver);
@@ -87,6 +87,8 @@ public class Task3 {
             System.out.println(tableRow);
             writer.println(tableRow);
         }
+        
+        System.out.println("\nДанные сохранены в файл " + OUTPUT_FILE);
     }
     
     private static void handleError(Exception error) {

@@ -43,7 +43,12 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.15.0</version>
+      <version>4.10.0</version> <!-- Используем последнюю стабильную версию -->
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+     <artifactId>json</artifactId>
+      <version>20231013</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
